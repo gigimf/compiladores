@@ -1,1 +1,1 @@
-Entegas disciplina Compiladores do pofessor Marcelo Maia
+Entegas disciplina Compiladores do pofessor Marcelo Maia.
