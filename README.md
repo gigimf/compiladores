@@ -1,6 +1,6 @@
 # CP5 — Giovana (Verificador de Tipos)
 
-Entrega do Checkpoint 5 (Compiladores) em nome de **Giovana Ferreira**: o compilador da smollang passa a calcular o tipo de
+Entrega do Checkpoint 5 (Compiladores) por **Giovana Ferreira**: o compilador da smollang passa a calcular o tipo de
 cada expressão e a recusar, com linha e mensagem, o programa que viola as regras de tipos. Parte da AST decorada do CP4
 (cada uso de nome aponta para a sua declaração). **Não gera código**: o tipo gravado em cada expressão é o que o CP6 vai ler.
 
