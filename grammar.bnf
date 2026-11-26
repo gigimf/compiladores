@@ -1,0 +1,34 @@
+Program -> Declarations EOF
+Declarations -> Declaration Declarations | EPS
+Declaration -> Type IDENTIFICADOR DeclarationRest | IDENTIFICADOR LPAREN Parameters RPAREN Block
+DeclarationRest -> LPAREN Parameters RPAREN Block | Initializer PONTO_VIRGULA
+Type -> INT | DOUBLE | BOOL | CHAR | STRING_TYPE
+Initializer -> AssignmentOperator Expression | EPS
+AssignmentOperator -> IGUAL | ATRIBUI
+Parameters -> Parameter ParametersTail | EPS
+ParametersTail -> VIRGULA Parameter ParametersTail | EPS
+Parameter -> Type IDENTIFICADOR
+Block -> ABRE_CHAVE Statements FECHA_CHAVE
+Statements -> Statement Statements | EPS
+Statement -> Type IDENTIFICADOR Initializer PONTO_VIRGULA | IDENTIFICADOR IdentifierStatement | IF LPAREN Expression RPAREN Block ElsePart | WHILE LPAREN Expression RPAREN Block | RETURN ReturnValue PONTO_VIRGULA | Block
+IdentifierStatement -> AssignmentOperator Expression PONTO_VIRGULA | LPAREN Arguments RPAREN PONTO_VIRGULA
+ElsePart -> ELSE Block | EPS
+ReturnValue -> Expression | EPS
+Arguments -> Expression ArgumentsTail | EPS
+ArgumentsTail -> VIRGULA Expression ArgumentsTail | EPS
+Expression -> Equality
+Equality -> Relational EqualityTail
+EqualityTail -> EqualityOperator Relational EqualityTail | EPS
+EqualityOperator -> IGUAL_IGUAL | DIFERENTE
+Relational -> Additive RelationalTail
+RelationalTail -> RelationalOperator Additive RelationalTail | EPS
+RelationalOperator -> MENOR | MENOR_IGUAL | MAIOR | MAIOR_IGUAL
+Additive -> Multiplicative AdditiveTail
+AdditiveTail -> AdditiveOperator Multiplicative AdditiveTail | EPS
+AdditiveOperator -> MAIS | MENOS
+Multiplicative -> Unary MultiplicativeTail
+MultiplicativeTail -> MultiplicativeOperator Unary MultiplicativeTail | EPS
+MultiplicativeOperator -> VEZES | DIVIDIR
+Unary -> NAO Unary | MENOS Unary | MAIS Unary | Primary
+Primary -> IDENTIFICADOR CallSuffix | INTEGER | FLOAT | BOOLEANO | CHAR_LITERAL | STRING | LPAREN Expression RPAREN
+CallSuffix -> LPAREN Arguments RPAREN | EPS
